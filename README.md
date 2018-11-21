@@ -1,0 +1,1 @@
+Allowing a client to grant both authorization code and client credentials will result in only authorization code being validated. Identity Server will complain that no redirect URI has been specified even though it should not be necessary for Client Credentials Flow.
