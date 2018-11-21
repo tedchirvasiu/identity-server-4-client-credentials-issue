@@ -7,16 +7,13 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace IS4CCRedirectUriIssue {
+namespace IS4CCRedirectUriIssue.Client {
     public class Startup {
 
         public void ConfigureServices(IServiceCollection services) {
-            services.AddIdentityServer()
-                    .AddDeveloperSigningCredential()
-                    .AddTestUsers(Config.GetTestUsers())
-                    .AddInMemoryApiResources(Config.GetApiResources())
-                    .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                    .AddInMemoryClients(Config.GetClients());
+
+            services.AddMvc();
+
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
@@ -24,7 +21,7 @@ namespace IS4CCRedirectUriIssue {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseIdentityServer();
+            app.UseMvc();
         }
     }
 }
